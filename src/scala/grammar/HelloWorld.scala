@@ -12,6 +12,11 @@ object HelloWorld {
         // 元组
         val tuple = (123, "123")
         println(tuple.getClass)
+        // 调用方法
+        println(sum(3, 5))
     }
 
+    def sum(a: Int, b: Int): Int = {
+        a + b
+    }
 }
