@@ -25,4 +25,6 @@ class Outer {
 //        print(inner.getA())
     }
 
+    // 不写方法体，没有等于号，默认会定义为抽象方法，此时类也必须被声明为抽象的
+//    def abstractMethod()
 }
