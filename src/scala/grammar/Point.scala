@@ -34,4 +34,26 @@ object Test {
         location.move(1, 2)
         location.move(3, 4, 5)
     }
+
+}
+
+// 测试伴生对象
+// 私有构造方法，这样其它地方就无法创建其对象，只有伴生对象可以
+class Marker private(color: String) {
+    println("创建对象：" + this)
+
+    // 私有一个num成员，别的地方也无法访问到这个成员，只有伴生对象可以
+    private var num: Int = 1
+
+    override def toString: String = "标记的颜色为：" + color
+}
+
+// 和类同名的object就是这个类的伴生对象
+// 伴生对象可以访问类的私有属性和私有方法，使用上来说就是Java中static的替代品
+object Marker {
+    def main(args: Array[String]): Unit = {
+        val marker = new Marker("red")
+        println(marker.num)
+        println(marker.toString)
+    }
 }
