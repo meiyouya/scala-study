@@ -57,3 +57,24 @@ object Marker {
         println(marker.toString)
     }
 }
+
+trait Equal {
+    def equal(x: Any): Boolean
+    def notEqual(x: Any): Boolean = !equal(x)
+}
+
+class Person(idCard: Int) extends Equal {
+    var card: Int = idCard
+    override def equal(x: Any): Boolean = x.isInstanceOf[Person] && x.asInstanceOf[Person].card == idCard
+}
+
+object TraitTest {
+    def main(args: Array[String]): Unit = {
+        val p1 = new Person(123)
+        val p2 = new Person(1234)
+        val p3 = new Point(1234, 2)
+        println(p1.equal(p2))
+        println(p1.equal(p3))
+    }
+
+}
