@@ -22,8 +22,10 @@ object FunctionTest {
 //        println(inc(6))
 //        println(userDir())
 //        test()
-        println(add1(2, 3))
-        println(add2(2)(3))
+//        println(add1(2, 3))
+//        println(add2(2)(3))
+        println(grow(2))
+        println(grow(3))
     }
 
     def time(): Long = {
@@ -122,4 +124,8 @@ object FunctionTest {
     // 这是一个柯里化后的函数，调用时  add(2)(3)也可以得到5
     def add2(x: Int)(y: Int): Int = x + y
 
+    // 闭包，也是一个函数
+    var factor = 3
+    // 这个函数依赖了一个外部变量，factor，每次执行的时候都要捕获外部的factor的值，拿到函数内部来执行，这样的函数就叫做闭包
+    var grow = (i: Int) => i * factor
 }
